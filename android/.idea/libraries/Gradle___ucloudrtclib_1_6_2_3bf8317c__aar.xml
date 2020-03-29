@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: :ucloudrtclib_1.6.2_3bf8317c:@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/02f47ee2c52cd20ced87bc5b63718845/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/02f47ee2c52cd20ced87bc5b63718845/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/02f47ee2c52cd20ced87bc5b63718845/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

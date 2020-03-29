@@ -1,0 +1,21 @@
+{
+  "name": "react-native-ucloud-rtc",
+  "version": "0.0.3",
+  "summary": "ucloud rtc native sdk for react-native",
+  "homepage": "https://www.ucloud.cn/",
+  "license": "MIT",
+  "authors": "dragon_zhao",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/ztl19930409/react-native-ucloud-rtc"
+  },
+  "source_files": "ios/videoView/*.{h,m}",
+  "vendored_frameworks": "ios/UCloudRtcSdk_ios.framework",
+  "dependencies": {
+    "React": [
+
+    ]
+  }
+}

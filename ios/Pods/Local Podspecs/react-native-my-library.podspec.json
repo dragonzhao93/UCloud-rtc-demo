@@ -1,0 +1,21 @@
+{
+  "name": "react-native-my-library",
+  "version": "1.0.0",
+  "summary": "agora native sdk for react-native",
+  "homepage": "http://xxx.com",
+  "license": "MIT",
+  "authors": "test",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/ztl19930409/react-native-my-library"
+  },
+  "source_files": "ios/videoView/*.{h,m}",
+  "vendored_frameworks": "ios/UCloudRtcSdk_ios.framework",
+  "dependencies": {
+    "React": [
+
+    ]
+  }
+}
