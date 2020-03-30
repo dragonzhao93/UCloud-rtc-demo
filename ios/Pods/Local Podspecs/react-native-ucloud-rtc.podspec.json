@@ -1,6 +1,6 @@
 {
   "name": "react-native-ucloud-rtc",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "summary": "ucloud rtc native sdk for react-native",
   "homepage": "https://www.ucloud.cn/",
   "license": "MIT",

@@ -183,6 +183,7 @@ repositories {
     }
 }
 dependencies {
+    implementation project(':react-native-ucloud-rtc')
 //    implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation fileTree(dir: "libs", include: ["*.jar","*.aar"])

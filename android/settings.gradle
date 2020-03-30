@@ -1,3 +1,5 @@
 rootProject.name = 'ucloud_demo'
+include ':react-native-ucloud-rtc'
+project(':react-native-ucloud-rtc').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-ucloud-rtc/android')
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
