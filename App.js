@@ -24,10 +24,10 @@ import UCloudView from './component/videoView/UCloudView';
 
 const UCloudRtcEventEmitter = new NativeEventEmitter(UCloudRtc);
 // 此处使用固定的房间号的随机的用户ID，请自行替换
-const userId = Math.floor(Math.random() * 1000000).toString();
-const appid = 'urtc-xxx';
+const userId = '958878';
+const appid = 'urtc-ipdozn3z';
 const roomId = 'ssss02';
-const appKey = 'xxxxxxxxxxxxx';
+const appKey = '906e5f97adc85fa1b81b96dac1792291';
 const token =
   'eyJ1c2VyX2lkIjoiNDA1ODA4Iiwicm9vbV9pZCI6InNzc3MwMiIsImFwcF9pZCI6InVydGMtaXBkb3puM3oifQ==.d68c9a9d409e31d8efb7f28ee012d465f9d19042158512816546076944';
 const initWithUserID1 = () => {
@@ -40,7 +40,17 @@ const initWithUserID1 = () => {
     });
 };
 const joinRoom = () => {
-  UCloudRtc.joinRoomWithRoomid(roomId, userId, token)
+  UCloudRtc.joinRoomWithRoomid(roomId, userId, token, false)
+    .then(res => {
+      console.log('收到回调', res);
+      addListener();
+    })
+    .catch(err => {
+      console.log('捕获异常', err);
+    });
+};
+const joinRoomOnlyAudio = () => {
+  UCloudRtc.joinRoomWithRoomid(roomId, userId, token, true)
     .then(res => {
       console.log('收到回调', res);
       addListener();
@@ -89,6 +99,12 @@ const App: () => React$Node = () => {
               onPress={joinRoom}
               style={styles.button}>
               <Text style={styles.buttonText}> 加入房间 </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              title="joinRoomOnlyAudio"
+              onPress={joinRoomOnlyAudio}
+              style={styles.button}>
+              <Text style={styles.buttonText}> 加入房间 (仅推送语音)</Text>
             </TouchableOpacity>
             <TouchableOpacity
               title="subscribeRemoteStream"
