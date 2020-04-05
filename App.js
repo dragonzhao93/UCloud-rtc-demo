@@ -31,7 +31,7 @@ const appKey = '906e5f97adc85fa1b81b96dac1792291';
 const token =
   'eyJ1c2VyX2lkIjoiNDA1ODA4Iiwicm9vbV9pZCI6InNzc3MwMiIsImFwcF9pZCI6InVydGMtaXBkb3puM3oifQ==.d68c9a9d409e31d8efb7f28ee012d465f9d19042158512816546076944';
 const initWithUserID1 = () => {
-  UCloudRtc.initWithAppid(appid, appKey)
+  UCloudRtc.initWithAppid(appid, appKey, false)
     .then(res => {
       console.log('收到回调', res);
     })
@@ -40,17 +40,7 @@ const initWithUserID1 = () => {
     });
 };
 const joinRoom = () => {
-  UCloudRtc.joinRoomWithRoomid(roomId, userId, token, false)
-    .then(res => {
-      console.log('收到回调', res);
-      addListener();
-    })
-    .catch(err => {
-      console.log('捕获异常', err);
-    });
-};
-const joinRoomOnlyAudio = () => {
-  UCloudRtc.joinRoomWithRoomid(roomId, userId, token, true)
+  UCloudRtc.joinRoomWithRoomid(roomId, userId, token)
     .then(res => {
       console.log('收到回调', res);
       addListener();
@@ -63,14 +53,14 @@ const subscribeRemoteStream = () => {
   UCloudRtc.subscribeRemoteStream();
 };
 
-const subscribeLocalStream = () => {
-  UCloudRtc.subscribeLocalStream();
+const publishLocalStreamWithCameraEnable = () => {
+  UCloudRtc.publishLocalStreamWithCameraEnable(false);
 }
 const leaveRoom = () => {
   UCloudRtc.leaveRoom();
 };
-const unSubscribeLocalStream = () => {
-  UCloudRtc.unSubscribeLocalStream();
+const unPublishLocalStream = () => {
+  UCloudRtc.unPublishLocalStream();
 };
 const addListener = () => {
   UCloudRtcEventEmitter.addListener('event_memberDidJoinRoom', args => {
@@ -79,6 +69,10 @@ const addListener = () => {
   UCloudRtcEventEmitter.addListener('event_memberDidLeaveRoom', args => {
     console.log('事件event_memberDidLeaveRoom', args);
   });
+  UCloudRtcEventEmitter.addListener('event_remoteVolumeChange', args => {
+    console.log('事件event_remoteVolumeChange', args);
+  });
+    
 };
 const App: () => React$Node = () => {
   return (
@@ -101,26 +95,20 @@ const App: () => React$Node = () => {
               <Text style={styles.buttonText}> 加入房间 </Text>
             </TouchableOpacity>
             <TouchableOpacity
-              title="joinRoomOnlyAudio"
-              onPress={joinRoomOnlyAudio}
-              style={styles.button}>
-              <Text style={styles.buttonText}> 加入房间 (仅推送语音)</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
               title="subscribeRemoteStream"
               onPress={subscribeRemoteStream}
               style={styles.button}>
               <Text style={styles.buttonText}> 订阅 </Text>
             </TouchableOpacity>
             <TouchableOpacity
-              title="subscribeLocalStream"
-              onPress={subscribeLocalStream}
+              title="publishLocalStreamWithCameraEnable"
+              onPress={publishLocalStreamWithCameraEnable}
               style={styles.button}>
-              <Text style={styles.buttonText}> 推送本地流 </Text>
+              <Text style={styles.buttonText}> 推送本地流(音视频) </Text>
             </TouchableOpacity>
             <TouchableOpacity
-              title="unSubscribeLocalStream"
-              onPress={unSubscribeLocalStream}
+              title="unPublishLocalStream"
+              onPress={unPublishLocalStream}
               style={styles.button}>
               <Text style={styles.buttonText}> 取消推送本地流 </Text>
             </TouchableOpacity>
